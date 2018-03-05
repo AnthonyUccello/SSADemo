@@ -11,20 +11,14 @@ import UIKit
 
 struct M_Shoe
 {
-    init()
+    init(type:T_Shoes, price:Float, name:String, imageName:String, colors:[UIColor], sizes:[T_ShoeSizes])
     {
-        _type = T_Shoes.ONE
-        _price = 63.33
-        _name = "Shoe 2"
-        _image = UIImage(named:"shoe2")!
-        _colors = [UIColor.black, UIColor.green, UIColor.red]
-        _sizes = [T_ShoeSizes.EIGHT, T_ShoeSizes.TEN]
-        initialize()
-    }
-    
-    func initialize()
-    {
-        
+        _type = type
+        _price = price
+        _name = name
+        _image = UIImage(named:imageName)!
+        _colors = colors
+        _sizes = sizes
     }
     
     var price:Float { get {return _price} }
@@ -41,13 +35,13 @@ struct M_Shoe
     var _colors:[UIColor]
     var _sizes:[T_ShoeSizes]
     
-    enum CodingKeys : String, CodingKey
-    {
-        case _price
-        case _type
-        case _name
-        case _image
-        case _colors
-        case _sizes
-    }
+//    enum CodingKeys : String, CodingKey
+//    {
+//        case _price
+//        case _type
+//        case _name
+//        case _image
+//        case _colors
+//        case _sizes
+//    }
 }
