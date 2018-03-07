@@ -10,18 +10,15 @@ import Foundation
 
 class MM_TypeToShoe
 {
-    static private var map:[T_Shoes:M_Shoe] =
-    [
-        :
-    ]
+    static private var map:[T_Shoes:M_Shoe] = [:]
+    
+    static func SetModel(type:T_Shoes, model:M_Shoe)
+    {
+        map[type] = model
+    }
     
     static func Get(type:T_Shoes) -> M_Shoe
-    {
-        if (map == nil)
-        {
-            //init
-        }
-        
+    {        
         if (map[type] == nil)
         {
             print("Missing: \(type)")

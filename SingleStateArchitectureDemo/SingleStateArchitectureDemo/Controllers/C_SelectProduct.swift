@@ -19,8 +19,8 @@ class C_SelectProduct : UIViewController
         view = _view
          _view.backgroundColor = UIColor.orange
         
-       // assignCallbacks()
-       // _view.UpdateView()
+        assignCallbacks()
+        _view.UpdateView()
     }
     
     func assignCallbacks()

@@ -15,7 +15,7 @@ struct M_Shoe : Decodable
     {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         _price = try values.decode(Float.self, forKey: ._price)
-        _type = T_Shoes.ONE
+        _type = T_Shoes(rawValue: try values.decode(Int.self, forKey: ._type))!
         _name = try values.decode(String.self, forKey: ._name)
         _imageString = try values.decode(String.self, forKey: ._imageString)
         _image = UIImage(named:_imageString)!

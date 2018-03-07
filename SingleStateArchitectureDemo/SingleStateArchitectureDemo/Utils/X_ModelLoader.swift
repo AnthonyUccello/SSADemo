@@ -24,7 +24,7 @@ class X_ModelLoader
                             do
                             {
                                 let model = try JSONDecoder().decode(M_Shoe.self, from: modelData)
-                                print(model)
+                                MM_TypeToShoe.SetModel(type: model.type, model: model)
                             }
                             catch let error
                             {
@@ -35,6 +35,8 @@ class X_ModelLoader
                 }
 
             }
+            
+            print(MM_TypeToShoe.GetAll())
         }
     }
 }

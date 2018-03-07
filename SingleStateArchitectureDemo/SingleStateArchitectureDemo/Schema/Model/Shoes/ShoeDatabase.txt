@@ -4,18 +4,26 @@
 		{
 			"_type":1,
 			"_price":33.33,
-			"_name":"Super Jordans",
+			"_name":"Shoe1",
 			"_imageString":"shoe1",
 			"_colors":["red","white"],
 			"_sizes":[8,9,10]
 		},
 		{
-			"_type":1,
+			"_type":2,
 			"_price":35.55,
-			"_name":"The Super Blues",
+			"_name":"Shoe2",
 			"_imageString":"shoe2",
 			"_colors":["green","white"],
 			"_sizes":[8,10]
+		},
+		{
+			"_type":3,
+			"_price":99.55,
+			"_name":"Shoe3",
+			"_imageString":"shoe3",
+			"_colors":["red","black"],
+			"_sizes":[8,9]
 		}
 	]
 }

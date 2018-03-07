@@ -11,7 +11,7 @@ import UIKit
 
 class W_ImageWithRightLabelAndColor:UIView
 {
-    private let BOX_DIMENSION = 50
+    private let BOX_DIMENSION = 20
     
     var _image:UIImageView!
     var _text:UILabel!

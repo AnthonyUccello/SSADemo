@@ -35,8 +35,8 @@ class V_SelectProduct : UIView
         
         super.init(frame:ViewUtils.GetScreenSizeRect())
         
-       // loadView()
-       // UpdateView()
+        loadView()
+        UpdateView()
     }
     
     private func loadView()

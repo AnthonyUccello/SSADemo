@@ -10,9 +10,9 @@ import Foundation
 
 enum T_Shoes:Int, Codable
 {
-    case ONE
-    case TWO
-    case THREE
+    case ONE = 1
+    case TWO = 2
+    case THREE = 3
 }
 
 
