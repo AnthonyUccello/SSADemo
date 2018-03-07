@@ -10,8 +10,30 @@ class X_ModelLoader
             let exists = fm.fileExists(atPath: path)
             if (exists)
             {
-                let content = fm.contents(atPath: path)
-                let contentAsString = String(data: content!, encoding: String.Encoding.utf8)
+                let data:Data! = fm.contents(atPath: path)!
+                let contentAsString = String(data: data, encoding: String.Encoding.utf8)
+                if let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                {
+                    let models = (json as? [String:Any])!
+                    let shoeModels = models["ShoeModels"] as? [[String:Any]]
+                    
+                    for modelDict:[String:Any] in shoeModels!
+                    {
+                        if let modelData = try?  JSONSerialization.data(withJSONObject: modelDict, options: .prettyPrinted)
+                        {
+                            do
+                            {
+                                let model = try JSONDecoder().decode(M_Shoe.self, from: modelData)
+                                print(model)
+                            }
+                            catch let error
+                            {
+                                print("Error: \(error)")
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }

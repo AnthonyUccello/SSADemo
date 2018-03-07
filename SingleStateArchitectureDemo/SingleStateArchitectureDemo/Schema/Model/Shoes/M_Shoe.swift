@@ -9,16 +9,18 @@
 import Foundation
 import UIKit
 
-struct M_Shoe
+struct M_Shoe : Decodable
 {
-    init(type:T_Shoes, price:Float, name:String, imageName:String, colors:[UIColor], sizes:[T_ShoeSizes])
+    public init(from decoder: Decoder) throws
     {
-        _type = type
-        _price = price
-        _name = name
-        _image = UIImage(named:imageName)!
-        _colors = colors
-        _sizes = sizes
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        _price = try values.decode(Float.self, forKey: ._price)
+        _type = T_Shoes.ONE
+        _name = try values.decode(String.self, forKey: ._name)
+        _imageString = try values.decode(String.self, forKey: ._imageString)
+        _image = UIImage(named:_imageString)!
+        _colors = [UIColor.green, UIColor.red]
+        _sizes = [T_ShoeSizes.EIGHT, T_ShoeSizes.NINE]
     }
     
     var price:Float { get {return _price} }
@@ -31,17 +33,20 @@ struct M_Shoe
     var _price:Float
     var _type:T_Shoes
     var _name: String
-    var _image:UIImage
     var _colors:[UIColor]
     var _sizes:[T_ShoeSizes]
+    var _imageString:String
     
-//    enum CodingKeys : String, CodingKey
-//    {
-//        case _price
-//        case _type
-//        case _name
-//        case _image
-//        case _colors
-//        case _sizes
-//    }
+    // Complex Step
+    var _image:UIImage
+    
+    enum CodingKeys : String, CodingKey
+    {
+        case _price
+        case _type
+        case _name
+        case _imageString
+        case _colors
+        case _sizes
+    }
 }
